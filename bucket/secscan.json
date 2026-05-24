@@ -1,0 +1,32 @@
+{
+    "version": "0.19.0",
+    "description": "Multi-scanner security CLI — deps/sast/secrets/dast/iast/sbom/image/apifuzz/supply/config.",
+    "homepage": "https://github.com/shunsukesuetsugu-prog/secscan",
+    "license": "MIT",
+    "depends": "python",
+    "url": "https://files.pythonhosted.org/packages/9d/ac/c30b5d5b61945509750cc24621ce54b44e3fa76b89ce05a214985b4ae563/shun_secscan-0.19.0-py3-none-any.whl",
+    "hash": "sha256:9e35c508475c34972cc53a6876ab7c50390936bad144cbb399d576ccc78e14fb",
+    "extract_dir": "",
+    "installer": {
+        "script": [
+            "$pyExe = (Get-Command python).Source",
+            "Write-Host \"Creating venv at $dir\\venv using $pyExe ...\"",
+            "& $pyExe -m venv \"$dir\\venv\"",
+            "if ($LASTEXITCODE -ne 0) { throw 'venv creation failed' }",
+            "Write-Host 'Installing shun-secscan into venv ...'",
+            "& \"$dir\\venv\\Scripts\\python.exe\" -m pip install --quiet --no-warn-script-location \"$dir\\shun_secscan-0.19.0-py3-none-any.whl\"",
+            "if ($LASTEXITCODE -ne 0) { throw 'pip install failed' }"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "if (Test-Path \"$dir\\venv\") { Remove-Item -Recurse -Force \"$dir\\venv\" }"
+        ]
+    },
+    "bin": "venv\\Scripts\\secscan.exe",
+    "checkver": {
+        "url": "https://pypi.org/pypi/shun-secscan/json",
+        "jsonpath": "$.info.version"
+    },
+    "_update_note": "After ``checkver`` reports a new version, manually edit ``url``, ``hash`` (sha256:...) and the wheel filename in the installer script. PyPI URLs contain a per-file hash prefix that Scoop's autoupdate template-substitution cannot reproduce, so we do not declare ``autoupdate`` to avoid a misleading half-working integration."
+}
