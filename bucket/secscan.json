@@ -1,11 +1,11 @@
 {
-    "version": "0.19.0",
+    "version": "0.20.0",
     "description": "Multi-scanner security CLI — deps/sast/secrets/dast/iast/sbom/image/apifuzz/supply/config.",
     "homepage": "https://github.com/shunsukesuetsugu-prog/secscan",
     "license": "MIT",
     "depends": "python",
-    "url": "https://files.pythonhosted.org/packages/9d/ac/c30b5d5b61945509750cc24621ce54b44e3fa76b89ce05a214985b4ae563/shun_secscan-0.19.0-py3-none-any.whl",
-    "hash": "sha256:9e35c508475c34972cc53a6876ab7c50390936bad144cbb399d576ccc78e14fb",
+    "url": "https://files.pythonhosted.org/packages/f7/f3/04f422c877f6f8335c9a6d2f34e53cd164a1e0e54726e709bf6d1490a300/shun_secscan-0.20.0-py3-none-any.whl",
+    "hash": "sha256:e1173d5f1d945b57534aa4909ff2b5f3b6bd315fc5bd322ae40bc9e254980389",
     "extract_dir": "",
     "installer": {
         "script": [
@@ -14,7 +14,7 @@
             "& $pyExe -m venv \"$dir\\venv\"",
             "if ($LASTEXITCODE -ne 0) { throw 'venv creation failed' }",
             "Write-Host 'Installing shun-secscan into venv ...'",
-            "& \"$dir\\venv\\Scripts\\python.exe\" -m pip install --quiet --no-warn-script-location \"$dir\\shun_secscan-0.19.0-py3-none-any.whl\"",
+            "& \"$dir\\venv\\Scripts\\python.exe\" -m pip install --quiet --no-warn-script-location \"$dir\\shun_secscan-0.20.0-py3-none-any.whl\"",
             "if ($LASTEXITCODE -ne 0) { throw 'pip install failed' }"
         ]
     },
